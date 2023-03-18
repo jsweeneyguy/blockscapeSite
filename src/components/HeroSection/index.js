@@ -25,7 +25,7 @@ const HeroSection = () => {
       <HeroContent>
         <HeroH1>Welcome to blockScapes!</HeroH1>
         <HeroP>
-          Click here to enter the allowlist for our genesis mint on March 69th
+          Click here to enter the allowlist
         </HeroP>
         <HeroBtnWrapper>
           <Button
