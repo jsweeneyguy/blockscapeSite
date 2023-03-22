@@ -94,7 +94,7 @@ const sendTransaction = async () => {
 
 }
 
-  const Navbar = ({ toggle }) => {
+  let Navbar = ({ toggle }) => {
     const [scrollNav, setScrollNav] = useState(false);
     const changeNav = () => {
       if (window.scrollY >= 80) {
@@ -192,7 +192,7 @@ const sendTransaction = async () => {
     );
   };
 
-  const MintSection = ({
+  let MintSection = ({
     lightBg,
     id,
     imgStart,
