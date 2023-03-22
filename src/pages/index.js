@@ -63,10 +63,8 @@ const connectWallet = async () => {
     const provider = await web3Modal.connect();
     const library = new Web3(provider);
     const accounts = await library.eth.getAccounts();
-    library.eth.getChainId().then(console.log)
+    library.eth.getChainId()
     const account = accounts[0];
-    console.log(account)
-    console.log(accounts);
     setAccounts(accounts)
     setProvider(provider);
     setLibrary(library);
@@ -74,10 +72,7 @@ const connectWallet = async () => {
       setAccount(account);
       library.eth.defaultAccount = account;
       setConnected(true);
-
     } 
-    console.log(account)
-    console.log(connected)
   } catch (error) {
     console.error(error);
   }
