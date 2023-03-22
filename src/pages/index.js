@@ -51,9 +51,8 @@ const Home = () => {
   const [provider, setProvider] = useState();
   const [library, setLibrary] = useState();
   const [account, setAccount] = useState('');
-  const [connected , setConnected] = useState(false);
   const web3Modal = new Web3Modal({
-    cacheProvider : true,
+    cacheProvider : false,
     providerOptions // required
   });
 
@@ -69,14 +68,13 @@ const connectWallet = async () => {
     if (accounts) {
       setAccount(account);
       library.eth.defaultAccount = account;
-      setConnected(true);
     } 
   } catch (error) {
     console.error(error);
   }
 };
 
-const sendTransaction = async () => {
+let sendTransaction = async () => {
   try {
     let testContract = new library.eth.Contract( abiJson , "0x8320c49A391fe1E0F41d2345ED1BB2909096Df53");
     let encodedFunction = testContract.methods.store(100).encodeABI();
@@ -176,7 +174,7 @@ const sendTransaction = async () => {
                 </NavItem>
               </NavMenu>
             <>
-            {connected ? 
+            {!account ? 
             <NavBtn>
             <NavBtnLink onClick={connectWallet}>{String(account).substring(0,4)}...{String(account).substring(38,42)}</NavBtnLink>
           </NavBtn> :
