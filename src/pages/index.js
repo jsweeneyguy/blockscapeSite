@@ -73,8 +73,7 @@ const connectWallet = async () => {
     if (accounts) {
       setAccount(account);
       library.eth.defaultAccount = account;
-      const connected = true;
-      setConnected(connected);
+      setConnected(true);
 
     } 
     console.log(account)
