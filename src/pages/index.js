@@ -42,6 +42,11 @@ import {
 } from "../components/InfoSection/InfoElements";
 import abiJson from "./abi";
 
+const web3Modal = new Web3Modal({
+  cacheProvider : false,
+  providerOptions // required
+});
+
 const Home = () => {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => {
@@ -50,10 +55,6 @@ const Home = () => {
  
   const [library, setLibrary] = useState();
   const [account, setAccount] = useState('');
-  const web3Modal = new Web3Modal({
-    cacheProvider : false,
-    providerOptions // required
-  });
 
 const connectWallet = async () => {
   try {
