@@ -58,9 +58,9 @@ const Home = () => {
 
 const connectWallet = async () => {
   try {
-    const provider = await web3Modal.connect();
-    const library = new Web3(provider);
-    const accounts = await library.eth.getAccounts();
+    let provider = await web3Modal.connect();
+    let library = new Web3(provider);
+    let accounts = await library.eth.getAccounts();
     library.eth.getChainId()
     let account = accounts[0];
     setProvider(provider);
@@ -83,7 +83,6 @@ let sendTransaction = async () => {
       to: "0x8320c49A391fe1E0F41d2345ED1BB2909096Df53",
       data: encodedFunction,
     });
-    console.log(gasEstimate);
     await testContract.methods.store(100).send({from : library.eth.defaultAccount , gas: gasEstimate});
     
   } catch (err) {
