@@ -170,7 +170,7 @@ let sendTransaction = async () => {
                 </NavItem>
               </NavMenu>
             <>
-            {!account ? 
+            {account ? 
             <NavBtn>
             <NavBtnLink onClick={connectWallet}>{String(account).substring(0,4)}...{String(account).substring(38,42)}</NavBtnLink>
           </NavBtn> :
