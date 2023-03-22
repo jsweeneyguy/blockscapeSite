@@ -61,7 +61,6 @@ const connectWallet = async () => {
     let provider = await web3Modal.connect();
     let library = new Web3(provider);
     let accounts = await library.eth.getAccounts();
-    library.eth.getChainId()
     let account = accounts[0];
     setProvider(provider);
     setLibrary(library);
