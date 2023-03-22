@@ -51,7 +51,6 @@ const Home = () => {
   const [provider, setProvider] = useState();
   const [library, setLibrary] = useState();
   const [account, setAccount] = useState('');
-  const [accounts, setAccounts] = useState([]);
   const [connected , setConnected] = useState(false);
   const web3Modal = new Web3Modal({
     cacheProvider : true,
@@ -64,8 +63,7 @@ const connectWallet = async () => {
     const library = new Web3(provider);
     const accounts = await library.eth.getAccounts();
     library.eth.getChainId()
-    const account = accounts[0];
-    setAccounts(accounts)
+    let account = accounts[0];
     setProvider(provider);
     setLibrary(library);
     if (accounts) {
@@ -80,15 +78,15 @@ const connectWallet = async () => {
 
 const sendTransaction = async () => {
   try {
-    const testContract = new library.eth.Contract( abiJson , "0x8320c49A391fe1E0F41d2345ED1BB2909096Df53");
-    const encodedFunction = testContract.methods.store(100).encodeABI();
-    const gasEstimate = await library.eth.estimateGas({ // estimate gas required to execute the transaction
+    let testContract = new library.eth.Contract( abiJson , "0x8320c49A391fe1E0F41d2345ED1BB2909096Df53");
+    let encodedFunction = testContract.methods.store(100).encodeABI();
+    let gasEstimate = await library.eth.estimateGas({ // estimate gas required to execute the transaction
       from: library.eth.defaultAccount,
       to: "0x8320c49A391fe1E0F41d2345ED1BB2909096Df53",
       data: encodedFunction,
     });
     console.log(gasEstimate);
-    const sendTx = await testContract.methods.store(100).send({from : library.eth.defaultAccount , gas: gasEstimate});
+    await testContract.methods.store(100).send({from : library.eth.defaultAccount , gas: gasEstimate});
     
   } catch (err) {
     console.log(err);
