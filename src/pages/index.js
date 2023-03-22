@@ -48,7 +48,6 @@ const Home = () => {
     setIsOpen(!isOpen);
   };
  
-  const [provider, setProvider] = useState();
   const [library, setLibrary] = useState();
   const [account, setAccount] = useState('');
   const web3Modal = new Web3Modal({
@@ -62,7 +61,6 @@ const connectWallet = async () => {
     let library = new Web3(provider);
     let accounts = await library.eth.getAccounts();
     let account = accounts[0];
-    setProvider(provider);
     setLibrary(library);
     if (accounts) {
       setAccount(account);
