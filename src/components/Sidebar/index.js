@@ -18,8 +18,10 @@ const Sidebar = ({isOpen, toggle}) => {
       <SidebarWrapper>
         <SidebarMenu>
           <SidebarLink to="Mint">Mint</SidebarLink>
+          <SidebarLink to="info">Mint Info</SidebarLink>
           <SidebarLink to="About blockScapes">About the Art</SidebarLink>
           <SidebarLink to="Join Us">Join Us</SidebarLink>
+          <SidebarLink onClick={() => window.location.href = 'https://linktr.ee/blockscapes'}>More</SidebarLink>
         </SidebarMenu>
       </SidebarWrapper>
     </SidebarContainer>

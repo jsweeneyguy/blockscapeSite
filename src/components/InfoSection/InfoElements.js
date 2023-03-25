@@ -12,11 +12,11 @@ export const InfoContainer = styled.div`
 export const InfoWrapper = styled.div`
   display: grid;
   z-index: 1;
-  height: 600px;
+  height: 860px;
   width: 100%;
   max-width: 1100px;
   margin: 0 auto;
-  padding: 0 1px;
+  padding: 0 24px;
   justify-content: center;
 `;
 export const InfoRow = styled.div`
@@ -26,7 +26,7 @@ export const InfoRow = styled.div`
   grid-template-areas: ${({ imgStart }) =>
     imgStart ? `'col2 col1'` : `'col1 col2'`};
 
-  @media screen and (max-width: 868px) {
+  @media screen and (max-width: 768px) {
     grid-template-areas: ${({ imgStart }) =>
       imgStart ? `'col1' 'col2'` : `'col1 col1' 'col2 col2'`};
   }
@@ -78,11 +78,11 @@ display: flex;
 justify-content: flex-start;
 `;
 export const ImgWrap = styled.div`
-max-width: 760px;
+max-width: 555px;
 height: 100%;
 `;
 export const Img = styled.img`
-width: 90%;
-margin: 0 0 0px 0;
+width: 100%;
+margin: 0 0 10px 0;
 padding-right:10px;
 `

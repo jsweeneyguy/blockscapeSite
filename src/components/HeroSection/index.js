@@ -25,11 +25,11 @@ const HeroSection = () => {
       <HeroContent>
         <HeroH1>Welcome to blockScapes!</HeroH1>
         <HeroP>
-          Click here to enter the allowlist
+          Click here to see mint information
         </HeroP>
         <HeroBtnWrapper>
           <Button
-            onClick={() => window.location.href = 'https://www.premint.xyz/blockscapes/'}
+            to='info'
             onMouseEnter={onHover}
             onMouseLeave={onHover}
             primary="true"

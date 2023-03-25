@@ -29,7 +29,12 @@ const InfoSection = ({
   alt,
   primary,
   dark,
-  dark2
+  dark2, 
+  extraText1,
+  extraText2,
+  extraText3,
+  extraText4,
+  extraText5,
 }) => {
   return (
     <>
@@ -40,10 +45,15 @@ const InfoSection = ({
               <TextWrapper>
                 <TopLine>{topLine}</TopLine>
                 <Heading lightText={lightText}>{headline}</Heading>
+                <TextWrapper>
+                <div style={{ color: 'black' , fontSize : 22}} id='myDiv'>
+                <p>{extraText1}</p><p>{extraText2}</p><p>{extraText3}</p><p>{extraText4}</p><p>{extraText5}</p>
+                </div>
+                </TextWrapper>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
                   <Button
-                    to="home"
+                    to="About blockScapes"
                     smooth={true}
                     duration={500}
                     spy={true}

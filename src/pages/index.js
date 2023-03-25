@@ -5,6 +5,7 @@ import InfoSection from "../components/InfoSection";
 import Footer from "../components/Footer";
 import {
   homeObjOne,
+  homeObjTwo,
   homeObjThree,
 } from "../components/InfoSection/Data";
 import Services from "../components/Services";
@@ -41,6 +42,7 @@ import {
   Img
 } from "../components/InfoSection/InfoElements";
 import abiJson from "./abi";
+import { VideoBg } from "../components/HeroSection/HeroElements";
 
 const web3Modal = new Web3Modal({
   cacheProvider : false,
@@ -132,6 +134,19 @@ let sendTransaction = async () => {
                 </NavItem>
                 <NavItem>
                   <NavLinks
+                    to="info"
+                    smooth={true}
+                    duration={500}
+                    spy={true}
+                    exact="true"
+                    offset={-80}
+                    activeClass="active"
+                  >
+                    Mint Info
+                  </NavLinks>
+                </NavItem>
+                <NavItem>
+                  <NavLinks
                     to="About blockScapes"
                     smooth={true}
                     duration={500}
@@ -197,8 +212,7 @@ let sendTransaction = async () => {
     darkText,
     description,
     buttonLabel,
-    img,
-    alt,
+    vid,
     primary,
     dark,
     dark2,
@@ -232,7 +246,7 @@ let sendTransaction = async () => {
               </Column1>
               <Column2>
                 <ImgWrap>
-                  <Img src={img.default} alt={alt} />
+                  <VideoBg autoPlay loop muted src={vid.default} width="480px" height="480px" />
                 </ImgWrap>
               </Column2>
             </InfoRow>
@@ -249,6 +263,7 @@ let sendTransaction = async () => {
       <Navbar toggle={toggle} />
       <HeroSection />
       <MintSection {...homeObjOne} />
+      <InfoSection {...homeObjTwo} />
       <Services/>
       <InfoSection {...homeObjThree} />
       <Footer/>
