@@ -55,7 +55,7 @@ const InfoSection = ({
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
                   <Button
-                    to={kappa? "" : "About blockScapes" }
+                    to={kappa? "About blockScapes" : "/" }
                     smooth={true}
                     duration={500}
                     spy={true}

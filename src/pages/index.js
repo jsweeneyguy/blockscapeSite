@@ -57,7 +57,7 @@ const Home = () => {
  
   const [library, setLibrary] = useState();
   const [account, setAccount] = useState('');
-  const [supply , setSupply ] = useState(0);
+  const [supply , setSupply ] = useState();
 
 const connectWallet = async () => {
   try {
