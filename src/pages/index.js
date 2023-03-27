@@ -45,7 +45,7 @@ import abiJson from "./abi";
 import { VideoBg } from "../components/HeroSection/HeroElements";
 
 const web3Modal = new Web3Modal({
-  cacheProvider : false,
+  cacheProvider : true,
   providerOptions // required
 });
 
@@ -57,6 +57,7 @@ const Home = () => {
  
   const [library, setLibrary] = useState();
   const [account, setAccount] = useState('');
+  const [supply , setSupply ] = useState(0);
 
 const connectWallet = async () => {
   try {
@@ -68,6 +69,11 @@ const connectWallet = async () => {
     if (accounts) {
       setAccount(account);
       library.eth.defaultAccount = account;
+      let testContract = new library.eth.Contract( abiJson , "0xB0b47e54BFF7474474477D51F8298089889494D1");
+      let res = await testContract.methods.totalSupply().call();
+      setSupply(res);
+      console.log(res);
+
     } 
   } catch (error) {
     console.error(error);
@@ -76,14 +82,15 @@ const connectWallet = async () => {
 
 let sendTransaction = async () => {
   try {
-    let testContract = new library.eth.Contract( abiJson , "0x8320c49A391fe1E0F41d2345ED1BB2909096Df53");
-    let encodedFunction = testContract.methods.store(100).encodeABI();
+    let testContract = new library.eth.Contract( abiJson , "0xB0b47e54BFF7474474477D51F8298089889494D1");
+    let encodedFunction = testContract.methods.mintPublic(1).encodeABI();
     let gasEstimate = await library.eth.estimateGas({ // estimate gas required to execute the transaction
       from: library.eth.defaultAccount,
-      to: "0x8320c49A391fe1E0F41d2345ED1BB2909096Df53",
+      to: "0xB0b47e54BFF7474474477D51F8298089889494D1",
       data: encodedFunction,
+      value: Web3.utils.toWei(".0069", "ether")
     });
-    await testContract.methods.store(100).send({from : library.eth.defaultAccount , gas: gasEstimate});
+    await testContract.methods.mintPublic(1).send({from : library.eth.defaultAccount , gas: gasEstimate , value: Web3.utils.toWei(".0069", "ether")});
     
   } catch (err) {
     console.log(err);
@@ -227,6 +234,11 @@ let sendTransaction = async () => {
                   <TopLine>{topLine}</TopLine>
                   <Heading lightText={lightText}>{headline}</Heading>
                   <Subtitle darkText={darkText}>{description}</Subtitle>
+                  <TextWrapper>
+                  <div style={{ color: 'white' , fontSize : 16}} id='myDiv'>
+                <p>Mint price: .0069</p><p>Per Txn: 1</p><p>Per Wallet: 5</p><p>Total Minted: {supply}/1234</p>
+                </div>
+                </TextWrapper>
                   <BtnWrap>
                     <Button
                       smooth={true}
@@ -246,7 +258,7 @@ let sendTransaction = async () => {
               </Column1>
               <Column2>
                 <ImgWrap>
-                  <VideoBg autoPlay loop muted src={vid.default} width="480px" height="480px" />
+                  <VideoBg autoPlay loop muted src={vid.default} width="300px" height="300px" />
                 </ImgWrap>
               </Column2>
             </InfoRow>

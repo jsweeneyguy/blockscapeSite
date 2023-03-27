@@ -5,14 +5,14 @@ export const homeObjOne={
     lightTextDesc: true,
     topLine:'Mint blockScapes',
     headline: 'public mint is currently closed',
-    description:'Check out Mint Info to Learn About our Release Structure',
     buttonLabel:'Mint',
     imgStart:false, 
     vid: require('../../videos/fin.mp4'),
     alt:'Car',
     dark:true,
     primary:true,
-    darkText:false
+    darkText:false,
+    kappa:true
 }
 
 export const homeObjTwo={
@@ -33,7 +33,8 @@ export const homeObjTwo={
     alt:'Piggybank',
     dark:false,
     primary:false,
-    darkText:true
+    darkText:true,
+    kappa:false
 }
 
 export const homeObjThree={
@@ -51,5 +52,6 @@ export const homeObjThree={
     dark:false,
     primary:false,
     darkText:true,
+    kappa:true,
     onClick : 'https://linktr.ee/blockscapes'
 }  

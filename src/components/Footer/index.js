@@ -30,13 +30,13 @@ const Footer = () => {
               blockScapes &copy; {new Date().getFullYear()} 
             </WebsiteRights>
             <SocialIcons>
-              <SocialIconLink href="/" target="_blank" aria-label="Discord">
+              <SocialIconLink onClick={() => window.location.href ="https://discord.gg/6TwXYp9n5Y"} target="_blank" aria-label="Discord">
                 <FaDiscord />
               </SocialIconLink>
-              <SocialIconLink href="/" target="_blank" aria-label="Twitter">
+              <SocialIconLink onClick={() => window.location.href ="https://twitter.com/blockscapes"} target="_blank" aria-label="Twitter">
                 <FaTwitter />
               </SocialIconLink>
-              <SocialIconLink href="/" target="_blank" aria-label="Medium">
+              <SocialIconLink onClick={() => window.location.href ="https://medium.com/@blockscapesnft"} target="_blank" aria-label="Medium">
                 <FaMedium />
               </SocialIconLink>
             </SocialIcons>

@@ -25,6 +25,7 @@ const InfoSection = ({
   darkText,
   description,
   buttonLabel,
+  kappa,
   img,
   alt,
   primary,
@@ -35,6 +36,7 @@ const InfoSection = ({
   extraText3,
   extraText4,
   extraText5,
+  onClick
 }) => {
   return (
     <>
@@ -53,7 +55,7 @@ const InfoSection = ({
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
                   <Button
-                    to="About blockScapes"
+                    to={kappa? "" : "About blockScapes" }
                     smooth={true}
                     duration={500}
                     spy={true}
@@ -62,6 +64,7 @@ const InfoSection = ({
                     dark={dark ? 1 : 0}
                     dark2={dark2 ? 1 : 0}
                     offset={-80}
+                    onClick={() => window.location.href = onClick}
                   >
                     {buttonLabel}
                   </Button>
