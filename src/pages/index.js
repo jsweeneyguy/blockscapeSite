@@ -71,7 +71,7 @@ const connectWallet = async () => {
       library.eth.defaultAccount = account;
       let testContract = new library.eth.Contract( abiJson , "0xB0b47e54BFF7474474477D51F8298089889494D1");
       let res = await testContract.methods.totalSupply().call();
-      setSupply(res);
+      await setSupply(res);
       console.log(res);
 
     } 

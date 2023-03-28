@@ -12,7 +12,7 @@ export const homeObjOne={
     dark:true,
     primary:true,
     darkText:false,
-    kappa:true
+    kappa:false
 }
 
 export const homeObjTwo={
@@ -34,7 +34,7 @@ export const homeObjTwo={
     dark:false,
     primary:false,
     darkText:true,
-    kappa:false
+    kappa:true
 }
 
 export const homeObjThree={
@@ -52,6 +52,6 @@ export const homeObjThree={
     dark:false,
     primary:false,
     darkText:true,
-    kappa:true,
+    kappa:false,
     onClick : 'https://linktr.ee/blockscapes'
 }  
