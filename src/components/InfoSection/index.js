@@ -54,6 +54,23 @@ const InfoSection = ({
                 </TextWrapper>
                 <Subtitle darkText={darkText}>{description}</Subtitle>
                 <BtnWrap>
+                <>
+                {kappa? 
+                <Button
+                to='About blockScapes'
+                smooth={true}
+                duration={500}
+                spy={true}
+                exact="true"
+                primary={primary ? 1 : 0}
+                dark={dark ? 1 : 0}
+                dark2={dark2 ? 1 : 0}
+                offset={-80}
+                onClick={ kappa? null : () => window.location.href = onClick}
+              >
+                {buttonLabel}
+              </Button>
+                :
                   <Button
                     to='About blockScapes'
                     smooth={true}
@@ -67,7 +84,8 @@ const InfoSection = ({
                     onClick={ kappa? null : () => window.location.href = onClick}
                   >
                     {buttonLabel}
-                  </Button>
+                  </Button> }
+                </>
                 </BtnWrap>
               </TextWrapper>
             </Column1>

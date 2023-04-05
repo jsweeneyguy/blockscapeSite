@@ -69,7 +69,7 @@ const connectWallet = async () => {
     if (accounts) {
       setAccount(account);
       library.eth.defaultAccount = account;
-      let testContract = new library.eth.Contract( abiJson , "0xB0b47e54BFF7474474477D51F8298089889494D1");
+      let testContract = new library.eth.Contract( abiJson , "0x7a69feDf2723A4A65A2e42Df1E1b17b208aCd7A0");
       let res = await testContract.methods.totalSupply().call();
       await setSupply(res);
       console.log(res);
@@ -82,11 +82,11 @@ const connectWallet = async () => {
 
 let sendTransaction = async () => {
   try {
-    let testContract = new library.eth.Contract( abiJson , "0xB0b47e54BFF7474474477D51F8298089889494D1");
+    let testContract = new library.eth.Contract( abiJson , "0x7a69feDf2723A4A65A2e42Df1E1b17b208aCd7A0");
     let encodedFunction = testContract.methods.mintPublic(1).encodeABI();
     let gasEstimate = await library.eth.estimateGas({ // estimate gas required to execute the transaction
       from: library.eth.defaultAccount,
-      to: "0xB0b47e54BFF7474474477D51F8298089889494D1",
+      to: "0x7a69feDf2723A4A65A2e42Df1E1b17b208aCd7A0",
       data: encodedFunction,
       value: Web3.utils.toWei(".0069", "ether")
     });
