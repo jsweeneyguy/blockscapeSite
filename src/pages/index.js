@@ -45,7 +45,7 @@ import abiJson from "./abi";
 import { VideoBg } from "../components/HeroSection/HeroElements";
 
 const web3Modal = new Web3Modal({
-  cacheProvider : true,
+  cacheProvider : false,
   providerOptions // required
 });
 
@@ -69,7 +69,8 @@ const Home = () => {
 
   const onDisconnect = () => {
     // your function code here
-    setAccount(null)
+    setAccount('')
+    library.currentProvider.disconnect();
   };
 
 
