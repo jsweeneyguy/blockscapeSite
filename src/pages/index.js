@@ -58,17 +58,9 @@ const Home = () => {
   const [library, setLibrary] = useState();
   const [account, setAccount] = useState('');
   const [supply , setSupply ] = useState();
-  const onDisconnect = async () => {
-    // your function code here
-    await setAccount('');
-    if (library) {
-    await library.currentProvider.disconnect();
-    }
-  };
 
   useEffect(() => {
     //if (!library) return;
-    window.addEventListener('beforeunload', onDisconnect);
     if (library) { 
     library.currentProvider.on('accountsChanged', accounts => {
       setAccount(accounts[0]);
@@ -76,12 +68,11 @@ const Home = () => {
   }
 
     return () => {
-      window.removeEventListener('beforeunload', onDisconnect);
       if (library) { 
       library.currentProvider.removeAllListeners('accountsChanged');
       }
     };
-  }, [library, onDisconnect]);
+  }, [library]);
 
 
 
