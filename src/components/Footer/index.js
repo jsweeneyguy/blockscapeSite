@@ -15,7 +15,11 @@ import {
   SocialIconLink
 } from "./FooterElements";
 import { animateScroll as scroll } from "react-scroll";
-import { FaFacebook, FaInstagram, FaYoutube, FaTwitter, FaLinkedin, FaDiscord, FaMedium } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaYoutube, FaTwitter, FaLinkedin, FaDiscord, FaMedium, FaEthereum } from "react-icons/fa";
+import { FontAwesomeIcon } from 'react-icons/fa';
+import { faEthereum } from '@fortawesome/free-brands-svg-icons';
+import { faEtherscan } from '@fortawesome/free-brands-svg-icons';
+
 const Footer = () => {
   const toggleHome = () => {
     scroll.scrollToTop();
@@ -30,8 +34,8 @@ const Footer = () => {
               blockScapes &copy; {new Date().getFullYear()} 
             </WebsiteRights>
             <SocialIcons>
-              <SocialIconLink onClick={() => window.location.href ="https://discord.gg/6TwXYp9n5Y"} target="_blank" aria-label="Discord">
-                <FaDiscord />
+            <SocialIconLink onClick={() => window.location.href ="https://etherscan.io/"} target="_blank" aria-label="Twitter">
+                <FaEthereum />
               </SocialIconLink>
               <SocialIconLink onClick={() => window.location.href ="https://twitter.com/blockscapes"} target="_blank" aria-label="Twitter">
                 <FaTwitter />
