@@ -62,7 +62,7 @@ const Home = () => {
     // your function code here
     await setAccount('');
     if (library) {
-    library.currentProvider.disconnect();
+    await library.currentProvider.disconnect();
     }
   };
 
@@ -137,7 +137,12 @@ let sendTransaction = async () => {
   
     useEffect(() => {
       window.addEventListener("scroll", changeNav);
+
+      return () => {
+        window.removeEventListener("scroll" , changeNav)
+      }
     }, []);
+
     const toggleHome = () => {
       scroll.scrollToTop();
     };
