@@ -62,9 +62,7 @@ const Home = () => {
   useEffect(() => {
     //if (!library) return;
     if (library) { 
-    library.currentProvider.on('accountsChanged', accounts => {
-      setAccount(accounts[0]);
-    });
+    
   }
 
     return () => {
@@ -90,8 +88,9 @@ const connectWallet = async () => {
       let testContract = new library.eth.Contract( abiJson , "0x7a69feDf2723A4A65A2e42Df1E1b17b208aCd7A0");
       let res = await testContract.methods.totalSupply().call();
       setSupply(res);
-      console.log(res);
-
+      library.currentProvider.on('accountsChanged', accounts => {
+        setAccount(accounts[0]);
+      });
     } 
   } catch (error) {
     console.error(error);
