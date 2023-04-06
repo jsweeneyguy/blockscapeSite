@@ -44,7 +44,7 @@ export const homeObjThree={
     lightTextDesc: false,
     topLine:'Join Our Community',
     headline: 'Be the first to get announcements and updates',
-    description:"All future events or drops will be announced first via Twitter and Disord, so drop us a follow to stay updated.",
+    description:"All future events or drops will be announced first via Twitter, so drop us a follow to stay updated.",
     buttonLabel:'Join Us',
     imgStart:false,
     img: require('../../images/community.svg'),

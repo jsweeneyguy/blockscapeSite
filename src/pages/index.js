@@ -61,7 +61,9 @@ const Home = () => {
   const onDisconnect = async () => {
     // your function code here
     await setAccount('');
+    if (library) {
     library.currentProvider.disconnect();
+    }
   };
 
   useEffect(() => {
