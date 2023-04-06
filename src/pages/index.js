@@ -72,7 +72,7 @@ const Home = () => {
       library.currentProvider.removeAllListeners('accountsChanged');
       }
     };
-  }, );
+  }, [library]);
 
 
 
