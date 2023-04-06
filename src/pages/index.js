@@ -59,28 +59,15 @@ const Home = () => {
   const [account, setAccount] = useState('');
   const [supply , setSupply ] = useState();
 
-  useEffect(() => {
-    //if (!library) return;
-    if (library) { 
-    library.currentProvider.on('accountsChanged', accounts => {
-      setAccount(accounts[0]);
-    });
-  }
-
-    return () => {
-      if (library) { 
-      library.currentProvider.removeAllListeners('accountsChanged');
-      }
-    };
-  }, [library]);
-
-
-
-
 const connectWallet = async () => {
   try {
     let provider = await web3Modal.connect();
     let library = new Web3(provider);
+    if (library) { 
+      library.currentProvider.on('accountsChanged', accounts => {
+        setAccount(accounts[0]);
+      });
+    }
     let accounts = await library.eth.getAccounts();
     let account = accounts[0];
     setLibrary(library);
