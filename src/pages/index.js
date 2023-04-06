@@ -67,10 +67,10 @@ const Home = () => {
     };
   }, []);
 
-  const onDisconnect = () => {
+  const onDisconnect = async () => {
     // your function code here
-    setAccount('')
-    library.currentProvider.disconnect();
+    await setAccount('');
+    //library.currentProvider.disconnect();
   };
 
 
