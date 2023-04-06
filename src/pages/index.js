@@ -59,6 +59,20 @@ const Home = () => {
   const [account, setAccount] = useState('');
   const [supply , setSupply ] = useState();
 
+  useEffect(() => {
+    window.addEventListener('beforeunload', onDisconnect);
+
+    return () => {
+      window.removeEventListener('beforeunload', onDisconnect);
+    };
+  }, []);
+
+  const onDisconnect = () => {
+    // your function code here
+    setAccount(null)
+  };
+
+
 const connectWallet = async () => {
   try {
     let provider = await web3Modal.connect();
