@@ -1,12 +1,7 @@
 import React from "react";
 import {
   FooterContainer,
-  FooterLinksContainer,
   FooterWrap,
-  FooterLinksWrapper,
-  FooterLinksItems,
-  FooterLinkTitle,
-  FooterLink,
   SocialMedia,
   SocialMediaWrap,
   SocialLogo,
@@ -15,10 +10,8 @@ import {
   SocialIconLink
 } from "./FooterElements";
 import { animateScroll as scroll } from "react-scroll";
-import { FaFacebook, FaInstagram, FaYoutube, FaTwitter, FaLinkedin, FaDiscord, FaMedium, FaEthereum } from "react-icons/fa";
-import { FontAwesomeIcon } from 'react-icons/fa';
-import { faEthereum } from '@fortawesome/free-brands-svg-icons';
-import { faEtherscan } from '@fortawesome/free-brands-svg-icons';
+import { FaTwitter, FaMedium, FaEthereum } from "react-icons/fa";
+
 
 const Footer = () => {
   const toggleHome = () => {
